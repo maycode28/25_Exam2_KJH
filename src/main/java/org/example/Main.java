@@ -11,10 +11,11 @@ public class Main {
         List<Motivation> motivations =new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         String cmd;
-        int selectedId = -1;
-        Motivation foundMotivation = null;
+
         System.out.println("== 명언 앱 실행 ==");
         while(true){
+            int selectedId = -1;
+            Motivation foundMotivation = null;
             System.out.print("명령어 ) ");
             cmd=sc.nextLine();
             if(cmd.contains("?")){
@@ -78,6 +79,19 @@ public class Main {
                     System.out.printf("작가 :  %s\n", foundMotivation.getAuthor());
                     System.out.printf("내용 :  %s\n", foundMotivation.getContent());
 
+                }else{
+                    System.out.printf("%d번 명언은 존재하지 않습니다.\n",selectedId);
+                }
+            } else if (cmd.startsWith("삭제")) {
+                for (Motivation motivation : motivations) {
+                    if (motivation.getId()==selectedId) {
+                        foundMotivation=motivation;
+                        break;
+                    }
+                }
+                if(foundMotivation!=null){
+                    motivations.remove(foundMotivation);
+                    System.out.printf("%d번 명언이 삭제되었습니다.\n",selectedId);
                 }else{
                     System.out.printf("%d번 명언은 존재하지 않습니다.\n",selectedId);
                 }
