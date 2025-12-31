@@ -1,17 +1,21 @@
 package org.example;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Motivation {
     private int id;
-    private Date regDate;
+    private String regDate;
     private String content;
     private String author;
     public Motivation(int id, String content, String author) {
         this.id = id;
         this.content = content;
         this.author = author;
-        this.regDate = new Date();
+        Date nowDate = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String strNowDate = simpleDateFormat.format(nowDate);
+        this.regDate = strNowDate;
     }
     public int getId() {
         return id;
@@ -19,10 +23,10 @@ public class Motivation {
     public void setId(int id) {
         this.id = id;
     }
-    public Date getRegDate() {
+    public String getRegDate() {
         return regDate;
     }
-    public void setRegDate(Date regDate) {
+    public void setRegDate(String regDate) {
         this.regDate = regDate;
     }
     public String getContent() {
