@@ -25,6 +25,13 @@ public class Main {
                 motivations.add(motivation);
                 System.out.printf("%d번 명언이 등록되었습니다.\n",id);
 
+            } else if (cmd.equals("목록")) {
+                System.out.println("번호   /   작가   /   명언");
+                System.out.println("=".repeat(30));
+                for(int i=motivations.size()-1;i>=0;i--){
+                    Motivation motivation = motivations.get(i);
+                    System.out.printf("%d   /   %s   /   %s\n",motivation.getId(),motivation.getAuthor(),motivation.getContent());
+                }
             } else if (cmd.equals("종료")) {
                 break;
             } else {
