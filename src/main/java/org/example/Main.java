@@ -65,6 +65,22 @@ public class Main {
                 }else{
                     System.out.printf("%d번 명언은 존재하지 않습니다.\n",selectedId);
                 }
+            } else if (cmd.startsWith("상세보기")) {
+                for (Motivation motivation : motivations) {
+                    if (motivation.getId()==selectedId) {
+                        foundMotivation=motivation;
+                        break;
+                    }
+                }
+                if(foundMotivation!=null){
+                    System.out.printf("번호 :  %d\n", foundMotivation.getId());
+                    System.out.printf("날짜 :  %s\n", foundMotivation.getRegDate());
+                    System.out.printf("작가 :  %s\n", foundMotivation.getAuthor());
+                    System.out.printf("내용 :  %s\n", foundMotivation.getContent());
+
+                }else{
+                    System.out.printf("%d번 명언은 존재하지 않습니다.\n",selectedId);
+                }
             } else if (cmd.equals("종료")) {
                 break;
             } else {
